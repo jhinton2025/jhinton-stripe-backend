@@ -1,90 +1,120 @@
-// api/create-checkout-session.js
-//
-// Vercel serverless function that creates a Stripe Checkout Session
-// from the cart items sent by the front end (cart.html on your site).
-//
-// Deploy this repo to Vercel, add STRIPE_SECRET_KEY as an environment
-// variable in the Vercel project settings, then point your cart page
-// at https://YOUR-VERCEL-PROJECT.vercel.app/api/create-checkout-session
+import Stripe from 'stripe';
+import crypto from 'node:crypto';
+import catalog from '../catalog.json' with { type: 'json' };
+import { applyCors } from '../cors.js';
 
-const Stripe = require('stripe');
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Set this to your live site so Stripe knows where to send the customer back
-const SITE_URL = process.env.SITE_URL || 'https://j-hinton.com';
+function safeEmail(value) {
+  const email = String(value || '').trim().toLowerCase();
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : '';
+}
 
-module.exports = async (req, res) => {
-  // CORS - allow your storefront to call this from the browser
-  res.setHeader('Access-Control-Allow-Origin', SITE_URL);
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+function buildShippingOptions() {
+  const ids = [
+    process.env.STRIPE_SHIPPING_RATE_STANDARD,
+    process.env.STRIPE_SHIPPING_RATE_EXPRESS
+  ].filter(Boolean);
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+  return ids.map(id => ({ shipping_rate: id }));
+}
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+export default async function handler(req, res) {
+  if (applyCors(req, res)) return;
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return res.status(500).json({ error: 'Stripe is not configured.' });
   }
 
   try {
-    const { items } = req.body;
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+    const incomingItems = Array.isArray(body.items) ? body.items : [];
+    const customerEmail = safeEmail(body.customerEmail);
 
-    if (!Array.isArray(items) || items.length === 0) {
-      return res.status(400).json({ error: 'Cart is empty' });
+    if (!customerEmail) {
+      return res.status(400).json({ error: 'A valid email address is required.' });
+    }
+    if (!incomingItems.length || incomingItems.length > 50) {
+      return res.status(400).json({ error: 'Your bag is empty or contains too many line items.' });
     }
 
-    // Build Stripe line items from the cart. Uses dynamic price_data so you
-    // don't need to pre-create a Stripe Price object for every product.
-    const line_items = items.map((item) => {
-      const unitAmount = Math.round(Number(item.price) * 100); // dollars -> cents
+    const line_items = incomingItems.map(item => {
+      const id = String(item.id || '');
+      const product = catalog[id];
+      if (!product) throw new Error(`Unavailable product: ${id}`);
 
-      if (!item.title || !unitAmount || unitAmount <= 0) {
-        throw new Error(`Invalid cart item: ${JSON.stringify(item)}`);
+      const qty = Math.max(1, Math.min(10, Number(item.qty) || 1));
+      const size = String(item.size || '').trim();
+
+      if (product.sizes.length && !product.sizes.includes(size)) {
+        throw new Error(`Please select a valid size for ${product.name}.`);
       }
 
       return {
+        quantity: qty,
         price_data: {
           currency: 'usd',
+          unit_amount: product.unit_amount,
           product_data: {
-            name: item.size && item.size !== 'One Size'
-              ? `${item.title} — Size ${item.size}`
-              : item.title,
-            images: item.img ? [item.img] : undefined,
-          },
-          unit_amount: unitAmount,
-        },
-        quantity: Math.max(1, parseInt(item.qty, 10) || 1),
+            name: product.name,
+            images: product.image ? [product.image] : [],
+            description: size ? `Size: ${size}` : undefined,
+            metadata: {
+              product_id: id,
+              size: size || 'N/A'
+            }
+          }
+        }
       };
     });
 
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      payment_method_types: ['card'],
-      line_items,
-      shipping_address_collection: {
-        allowed_countries: ['US', 'CA'],
-      },
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: { amount: 0, currency: 'usd' },
-            display_name: 'Standard Shipping',
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 3 },
-              maximum: { unit: 'business_day', value: 7 },
-            },
-          },
-        },
-      ],
-      success_url: `${SITE_URL}/order-status.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${SITE_URL}/cart.html`,
-    });
+    const orderNumber = `JH-${Date.now().toString(36).toUpperCase()}-${crypto.randomBytes(2).toString('hex').toUpperCase()}`;
+    const shippingOptions = buildShippingOptions();
 
-    return res.status(200).json({ url: session.url });
-  } catch (err) {
-    console.error('Stripe session creation failed:', err);
-    return res.status(500).json({ error: err.message || 'Checkout session creation failed' });
+    const allowedCountries = (process.env.ALLOWED_SHIPPING_COUNTRIES || 'US')
+      .split(',')
+      .map(v => v.trim().toUpperCase())
+      .filter(Boolean);
+
+    const sessionParams = {
+      mode: 'payment',
+      line_items,
+      customer_email: customerEmail,
+      client_reference_id: orderNumber,
+      success_url: 'https://j-hinton.com/order-confirmation.html?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url: 'https://j-hinton.com/checkout.html?cancelled=1',
+      billing_address_collection: 'auto',
+      shipping_address_collection: {
+        allowed_countries: allowedCountries
+      },
+      allow_promotion_codes: true,
+      phone_number_collection: { enabled: true },
+      metadata: {
+        order_number: orderNumber,
+        source: 'j-hinton.com'
+      }
+    };
+
+    if (shippingOptions.length) {
+      sessionParams.shipping_options = shippingOptions;
+    }
+
+    if (String(process.env.STRIPE_AUTOMATIC_TAX || '').toLowerCase() === 'true') {
+      sessionParams.automatic_tax = { enabled: true };
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
+
+    return res.status(200).json({
+      url: session.url,
+      sessionId: session.id,
+      orderNumber
+    });
+  } catch (error) {
+    console.error('Checkout session error:', error);
+    return res.status(400).json({
+      error: error?.message || 'Unable to create checkout session.'
+    });
   }
-};
+}
