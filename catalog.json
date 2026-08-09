@@ -1,0 +1,97 @@
+{
+  "blanc-ascendant": {
+    "name": "Ascendant Cap — Blanc",
+    "unit_amount": 7500,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/blanc-ascendant-1.png?v=1765925183",
+    "sizes": []
+  },
+  "boxer-briefs": {
+    "name": "Boxer Briefs",
+    "unit_amount": 3500,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/boxer-briefs-1.png?v=1765925184",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  "camden-mesh-blanc": {
+    "name": "Camden Mesh Cap — Blanc",
+    "unit_amount": 7500,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/camden-mesh-blanc-1.png?v=1765925186",
+    "sizes": []
+  },
+  "camden-mesh-rouge": {
+    "name": "Camden Mesh Cap — Rouge",
+    "unit_amount": 7500,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/camden-mesh-rouge-1.png?v=1765925187",
+    "sizes": []
+  },
+  "camden-rouge-knit": {
+    "name": "Camden Knit Beanie — Rouge",
+    "unit_amount": 6500,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/camden-rouge-knit-1.jpg?v=1765925181",
+    "sizes": []
+  },
+  "noir-ascendant": {
+    "name": "Noir Ascendant",
+    "unit_amount": 7500,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/noir-ascendant-1.png?v=1765925187",
+    "sizes": []
+  },
+  "the-astor-varsity": {
+    "name": "The Astor Varsity – Charcoal",
+    "unit_amount": 35000,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-astor_varsity-1.png?v=1765570141",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
+  },
+  "the-bridgeview-varsity": {
+    "name": "The Bridgeview Varsity – Black",
+    "unit_amount": 35000,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-bridgeview-varsiity-1.png?v=1765925187",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
+  },
+  "the-camden-ivory": {
+    "name": "The Camden Backpack — Ivory",
+    "unit_amount": 15000,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/ths_camden_ivory_1.png?v=1766497262",
+    "sizes": []
+  },
+  "the-camden-rouge": {
+    "name": "The Camden Backpack — Rouge",
+    "unit_amount": 15000,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-camden-rouge-1.png?v=1765925189",
+    "sizes": []
+  },
+  "the-laurel-varsity": {
+    "name": "The Laurel Varsity – Red",
+    "unit_amount": 35000,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-laurel-varsity.png?v=1765928467",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
+  },
+  "the-noir-camden-gold": {
+    "name": "The Camden Backpack — Noir Gold",
+    "unit_amount": 15000,
+    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-noir-camden-gold-1.png?v=1765925188",
+    "sizes": []
+  }
+}

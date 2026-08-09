@@ -1,9 +1,10 @@
 {
-  "name": "jhinton-stripe-backend",
+  "name": "jhinton-stripe-checkout-api",
   "version": "1.0.0",
-  "description": "Stripe Checkout Session backend for J.Hinton Collections",
-  "main": "api/create-checkout-session.js",
+  "private": true,
+  "type": "module",
   "dependencies": {
-    "stripe": "^16.0.0"
+    "stripe": "^18.5.0",
+    "raw-body": "^3.0.0"
   }
 }

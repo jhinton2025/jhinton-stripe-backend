@@ -1,65 +1,88 @@
-# J.Hinton Stripe Checkout Backend
+# J.HINTON Stripe Checkout — GitHub + Vercel
 
-A single serverless function that turns your cart into a Stripe Checkout Session.
-Your Stripe secret key never touches the browser — it lives only on this backend.
+This folder is the private server-side checkout API for `j-hinton.com`.
 
-## How it works
+## 1. Create the GitHub repository
 
-1. Your storefront (`cart.html`) sends the cart items to this backend.
-2. This backend creates a Stripe Checkout Session and returns Stripe's hosted checkout URL.
-3. Your storefront redirects the customer to that URL.
-4. Stripe collects payment + shipping address, then sends the customer back to
-   `order-status.html` on your site.
+Create a new **private** GitHub repository, for example:
 
-## Deploy it (GitHub + Vercel, free tier)
+`jhinton-checkout-api`
 
-1. **Create a new GitHub repo** (e.g. `jhinton-stripe-backend`) and push this folder to it:
-   ```bash
-   git init
-   git add .
-   git commit -m "Stripe checkout backend"
-   git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/jhinton-stripe-backend.git
-   git push -u origin main
-   ```
+Upload the contents of this `vercel-stripe-api` folder to the repository root.
 
-2. **Go to [vercel.com](https://vercel.com)** and sign in with your GitHub account.
+Do **not** commit Stripe secret keys.
 
-3. Click **Add New Project**, select the `jhinton-stripe-backend` repo, and click **Import**.
-   Vercel auto-detects the `api/` folder as serverless functions — no extra config needed.
+## 2. Import the GitHub repo into Vercel
 
-4. Before deploying, add environment variables under **Project Settings → Environment Variables**:
-   - `STRIPE_SECRET_KEY` — your Stripe secret key (starts with `sk_live_` or `sk_test_`)
-   - `SITE_URL` — `https://j-hinton.com` (your live site, no trailing slash)
+In Vercel:
 
-5. Click **Deploy**. You'll get a URL like:
-   ```
-   https://jhinton-stripe-backend.vercel.app
-   ```
+1. Add New → Project
+2. Import the private GitHub repository
+3. Framework preset: Other
+4. Deploy
 
-6. Your live endpoint is:
-   ```
-   https://jhinton-stripe-backend.vercel.app/api/create-checkout-session
-   ```
+The API health route should become:
 
-## Connect it to your site
+`https://YOUR-VERCEL-PROJECT.vercel.app/api/health`
 
-Open `cart.html` and find this line near the top of the `<script>` block:
+It should return JSON showing the checkout service is running.
 
-```js
-const STRIPE_BACKEND_URL = 'PASTE_YOUR_VERCEL_URL_HERE/api/create-checkout-session';
-```
+## 3. Add Vercel environment variables
 
-Replace it with your real Vercel URL from step 5, re-upload `cart.html` to Hostinger, done.
+Project → Settings → Environment Variables:
 
-## Testing
+- `STRIPE_SECRET_KEY` = Stripe secret key (`sk_test_...` while testing)
+- `STRIPE_WEBHOOK_SECRET` = Stripe webhook signing secret (`whsec_...`)
+- `ALLOWED_SHIPPING_COUNTRIES` = `US`
+- `STRIPE_AUTOMATIC_TAX` = `false` initially
 
-- Use Stripe's test secret key (`sk_test_...`) and test card `4242 4242 4242 4242`
-  with any future expiry date and any CVC to confirm the flow works end to end.
-- Switch to your live secret key (`sk_live_...`) in Vercel's environment variables
-  when you're ready to accept real payments.
+Optional shipping rates:
+- `STRIPE_SHIPPING_RATE_STANDARD` = a Stripe Shipping Rate ID (`shr_...`)
+- `STRIPE_SHIPPING_RATE_EXPRESS` = a second Shipping Rate ID (`shr_...`)
 
-## Updating later
+Redeploy after adding or changing environment variables.
 
-Any time you push a change to the `main` branch on GitHub, Vercel automatically
-redeploys — no manual steps needed.
+## 4. Connect the custom checkout API domain
+
+In Vercel → Project → Settings → Domains, add:
+
+`checkout.j-hinton.com`
+
+Vercel will show the DNS record you must add at your DNS provider.
+
+The included Hostinger `checkout.html` and `order-confirmation.html` are already configured to call:
+
+`https://checkout.j-hinton.com`
+
+## 5. Configure Stripe webhook
+
+In Stripe Dashboard → Developers → Webhooks:
+
+Endpoint:
+`https://checkout.j-hinton.com/api/webhook`
+
+Listen for:
+- `checkout.session.completed`
+
+Copy the webhook signing secret into Vercel as `STRIPE_WEBHOOK_SECRET`, then redeploy.
+
+## 6. Test mode first
+
+Use Stripe test keys first. Add products to the J.HINTON bag, continue to checkout, and complete a Stripe test payment.
+
+Only after the full flow works should you replace the Vercel secret with the live Stripe secret key and configure the live webhook.
+
+## Security design
+
+The browser sends only product ID, size, and quantity. Prices are **not trusted from localStorage**. The Vercel API uses `catalog.json` as the server-side price authority before creating the Stripe Checkout Session.
+
+This prevents a customer from editing the browser cart price before payment.
+
+## Updating product prices
+
+Whenever a website product price changes, update the matching `unit_amount` in `catalog.json`.
+
+Stripe amounts are in cents:
+- $75.00 = `7500`
+- $150.00 = `15000`
+- $350.00 = `35000`
