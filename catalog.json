@@ -93,17 +93,17 @@
     "unit_amount": 15000,
     "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-noir-camden-gold-1.png?v=1765925188",
     "sizes": []
+  },
+  "the-buddha-signature-tee": {
+    "name": "The Buddha Signature Tee",
+    "unit_amount": 4000,
+    "image": "",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ]
   }
-}
-"the-buddha-signature-tee": {
-  "name": "The Buddha Signature Tee",
-  "unit_amount": 4000,
-  "image": "",
-  "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "XXL"
-  ]
 }
