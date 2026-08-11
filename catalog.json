@@ -95,3 +95,15 @@
     "sizes": []
   }
 }
+"the-buddha-signature-tee": {
+  "name": "The Buddha Signature Tee",
+  "unit_amount": 4000,
+  "image": "",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ]
+}
