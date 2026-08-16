@@ -96,7 +96,7 @@
   },
   "the-buddha-signature-tee": {
     "name": "The Buddha Signature Tee",
-    "unit_amount": 4000,
+    "unit_amount": 6500,
     "image": "https://j-hinton.com/products/buddha-signature-shirt-main.png",
     "sizes": [
       "M",
@@ -214,6 +214,19 @@
       "XL",
       "2XL"
     ]
+  },
+  "the-baymont-polo-heather-grey": {
+    "name": "The Baymont Polo — Heather Grey",
+    "unit_amount": 8500,
+    "image": "https://j-hinton.com/product-thumbnails/baymont-polo-heather-grey-fill.jpg",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ]
   }
-      }
-
+}
