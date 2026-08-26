@@ -2,212 +2,66 @@
   "blanc-ascendant": {
     "name": "Ascendant Cap — Blanc",
     "unit_amount": 7500,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/blanc-ascendant-1.png?v=1765925183",
+    "image": "https://j-hinton.com/assets/images/products/blanc-ascendant/blanc-ascendant-1.jpg",
     "sizes": []
   },
   "boxer-briefs": {
     "name": "J.HINTON Signature Boxer Briefs",
     "unit_amount": 3500,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/boxer-briefs-1.png?v=1765925184",
+    "image": "https://j-hinton.com/assets/images/products/boxer-briefs/boxer-briefs-1.png",
     "sizes": [
       "S",
       "M",
       "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL"
+      "XL"
     ]
   },
   "camden-mesh-blanc": {
     "name": "Camden Mesh Cap — Blanc",
     "unit_amount": 7500,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/camden-mesh-blanc-1.png?v=1765925186",
+    "image": "https://j-hinton.com/assets/images/products/camden-mesh-blanc/camden-mesh-blanc-1.jpg",
     "sizes": []
   },
   "camden-mesh-rouge": {
     "name": "Camden Mesh Cap — Rouge",
     "unit_amount": 7500,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/camden-mesh-rouge-1.png?v=1765925187",
+    "image": "https://j-hinton.com/assets/images/products/camden-mesh-rouge/camden-mesh-rouge-1.jpg",
+    "sizes": []
+  },
+  "camden-noir-knit": {
+    "name": "Camden Knit Beanie — Noir",
+    "unit_amount": 6500,
+    "image": "https://j-hinton.com/assets/images/products/camden-noir-knit/camden-noir-knit-1.jpg",
     "sizes": []
   },
   "camden-rouge-knit": {
     "name": "Camden Knit Beanie — Rouge",
     "unit_amount": 6500,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/camden-rouge-knit-1.jpg?v=1765925181",
+    "image": "https://j-hinton.com/assets/images/products/camden-rouge-knit/camden-rouge-knit-1.jpg",
     "sizes": []
   },
   "noir-ascendant": {
     "name": "Noir Ascendant",
     "unit_amount": 7500,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/noir-ascendant-1.png?v=1765925187",
+    "image": "https://j-hinton.com/assets/images/products/noir-ascendant/noir-ascendant-1.jpg",
     "sizes": []
+  },
+  "the-alban-tee": {
+    "name": "The Alban Tee",
+    "unit_amount": 6500,
+    "image": "https://j-hinton.com/assets/images/products/the-alban-tee/the-alban-tee-1.jpg",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
   },
   "the-astor-varsity": {
     "name": "The Astor Varsity – Charcoal",
     "unit_amount": 35000,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-astor_varsity-1.png?v=1765570141",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-bridgeview-varsity": {
-    "name": "The Bridgeview Varsity – Black",
-    "unit_amount": 35000,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-bridgeview-varsiity-1.png?v=1765925187",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-camden-ivory": {
-    "name": "The Camden Backpack — Ivory",
-    "unit_amount": 15000,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/ths_camden_ivory_1.png?v=1766497262",
-    "sizes": []
-  },
-  "the-camden-rouge": {
-    "name": "The Camden Backpack — Rouge",
-    "unit_amount": 15000,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-camden-rouge-1.png?v=1765925189",
-    "sizes": []
-  },
-  "the-laurel-varsity": {
-    "name": "The Laurel Varsity – Red",
-    "unit_amount": 35000,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-laurel-varsity.png?v=1765928467",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-noir-camden-gold": {
-    "name": "The Camden Backpack — Noir Gold",
-    "unit_amount": 15000,
-    "image": "https://cdn.shopify.com/s/files/1/0970/4882/2041/files/the-noir-camden-gold-1.png?v=1765925188",
-    "sizes": []
-  },
-  "the-buddha-signature-tee": {
-    "name": "The Buddha Signature Tee",
-    "unit_amount": 6500,
-    "image": "https://j-hinton.com/products/buddha-signature-shirt-main.png",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-woodsen-moto-denim": {
-    "name": "The Woodsen Moto Denim",
-    "unit_amount": 20000,
-    "image": "https://j-hinton.com/products/the-woodsen-moto-denim-1.jpg",
-    "sizes": [
-      "30",
-      "32",
-      "33",
-      "34",
-      "36",
-      "38"
-    ]
-  },
-  "the-jaxson-distressed-denim": {
-    "name": "The Jaxson Distressed Denim",
-    "unit_amount": 15000,
-    "image": "https://j-hinton.com/products/the-jaxson-distressed-denim-1.jpg",
-    "sizes": [
-      "32",
-      "34",
-      "36",
-      "38",
-      "40",
-      "42"
-    ]
-  },
-  "the-alban-tee": {
-    "name": "The Alban Tee",
-    "unit_amount": 7500,
-    "image": "https://j-hinton.com/products/the-alban-tee-1.jpg",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-baymont-polo": {
-    "name": "The Baymont Polo",
-    "unit_amount": 8500,
-    "image": "https://j-hinton.com/products/the-baymont-polo-1.jpg",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL"
-    ]
-  },
-  "the-roselle-v-neck-rouge": {
-    "name": "The Roselle V-Neck — Navy",
-    "unit_amount": 6500,
-    "image": "https://j-hinton.com/products/the-roselle-v-neck-rouge-1.jpg",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL",
-      "4XL"
-    ]
-  },
-  "the-holland-sweatshirt": {
-    "name": "The Holland Sweatshirt",
-    "unit_amount": 12500,
-    "image": "https://j-hinton.com/products/the-holland-sweatshirt-1.jpg",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-jamison-tee": {
-    "name": "The Jamison Fashion Capitals Tee",
-    "unit_amount": 6500,
-    "image": "https://j-hinton.com/products/the-jamison-tee-1.jpg",
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-coastline-sweatshirt": {
-    "name": "The Coastline Sweatshirt",
-    "unit_amount": 10500,
-    "image": "https://j-hinton.com/products/the-coastline-sweatshirt-1.jpg",
-    "sizes": [
-      "M",
-      "L",
-      "XL",
-      "2XL"
-    ]
-  },
-  "the-whitman-sweatshirt": {
-    "name": "The Whitman Sweatshirt",
-    "unit_amount": 7500,
-    "image": "https://j-hinton.com/products/whitman-sweatshirt-navy-1.png",
+    "image": "https://j-hinton.com/assets/images/products/the-astor-varsity/the-astor-varsity-1.jpg",
     "sizes": [
       "M",
       "L",
@@ -218,7 +72,7 @@
   "the-baymont-polo-heather-grey": {
     "name": "The Baymont Polo — Heather Grey",
     "unit_amount": 8500,
-    "image": "https://j-hinton.com/product-thumbnails/baymont-polo-heather-grey-fill.jpg",
+    "image": "https://j-hinton.com/assets/images/products/the-baymont-polo-heather-grey/the-baymont-polo-heather-grey-1.jpg",
     "sizes": [
       "S",
       "M",
@@ -227,6 +81,167 @@
       "2XL",
       "3XL",
       "4XL"
+    ]
+  },
+  "the-baymont-polo": {
+    "name": "The Baymont Polo",
+    "unit_amount": 8500,
+    "image": "https://j-hinton.com/assets/images/products/the-baymont-polo/the-baymont-polo-1.jpg",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL",
+      "4XL"
+    ]
+  },
+  "the-bridgeview-varsity": {
+    "name": "The Bridgeview Varsity – Black",
+    "unit_amount": 35000,
+    "image": "https://j-hinton.com/assets/images/products/the-bridgeview-varsity/the-bridgeview-varsity-1.jpg",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-buddha-signature-tee": {
+    "name": "The Buddha Signature Tee",
+    "unit_amount": 6500,
+    "image": "https://j-hinton.com/assets/images/products/the-buddha-signature-tee/the-buddha-signature-tee-1.jpg",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-camden-ivory": {
+    "name": "The Camden Backpack — Ivory",
+    "unit_amount": 15000,
+    "image": "https://j-hinton.com/assets/images/products/the-camden-ivory/the-camden-ivory-1.jpg",
+    "sizes": []
+  },
+  "the-camden-rouge": {
+    "name": "The Camden Backpack — Rouge",
+    "unit_amount": 15000,
+    "image": "https://j-hinton.com/assets/images/products/the-camden-rouge/the-camden-rouge-1.jpg",
+    "sizes": []
+  },
+  "the-coastline-sweatshirt": {
+    "name": "The Coastline Sweatshirt",
+    "unit_amount": 10500,
+    "image": "https://j-hinton.com/assets/images/products/the-coastline-sweatshirt/the-coastline-sweatshirt-1.jpg",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-forester-shred-tee": {
+    "name": "The Forester Shred Tee",
+    "unit_amount": 6500,
+    "image": "https://j-hinton.com/assets/images/products/the-forester-shred-tee/the-forester-shred-tee-1.jpg",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-holland-sweatshirt": {
+    "name": "The Holland Sweatshirt",
+    "unit_amount": 12500,
+    "image": "https://j-hinton.com/assets/images/products/the-holland-sweatshirt/the-holland-sweatshirt-1.png",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-jamison-tee": {
+    "name": "The Jamison Fashion Capitals Tee",
+    "unit_amount": 6500,
+    "image": "https://j-hinton.com/assets/images/products/the-jamison-tee/the-jamison-tee-1.jpg",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-jaxson-distressed-denim": {
+    "name": "The Jaxson Distressed Denim",
+    "unit_amount": 15000,
+    "image": "https://j-hinton.com/assets/images/products/the-jaxson-distressed-denim/the-jaxson-distressed-denim-1.jpg",
+    "sizes": [
+      "32",
+      "34",
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
+  },
+  "the-laurel-varsity": {
+    "name": "The Laurel Varsity – Red",
+    "unit_amount": 35000,
+    "image": "https://j-hinton.com/assets/images/products/the-laurel-varsity/the-laurel-varsity-1.jpg",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-noir-camden-gold": {
+    "name": "The Camden Backpack — Noir Gold",
+    "unit_amount": 15000,
+    "image": "https://j-hinton.com/assets/images/products/the-noir-camden-gold/the-noir-camden-gold-1.jpg",
+    "sizes": []
+  },
+  "the-roselle-v-neck-rouge": {
+    "name": "The Roselle V-Neck — Rouge",
+    "unit_amount": 6500,
+    "image": "https://j-hinton.com/assets/images/products/the-roselle-v-neck-rouge/the-roselle-v-neck-rouge-1.jpg",
+    "sizes": [
+      "S / 46",
+      "M / 48",
+      "L / 50",
+      "XL / 52",
+      "2XL / 54"
+    ]
+  },
+  "the-whitman-sweatshirt": {
+    "name": "The Whitman Sweatshirt",
+    "unit_amount": 7500,
+    "image": "https://j-hinton.com/assets/images/products/the-whitman-sweatshirt/the-whitman-sweatshirt-1.png",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ]
+  },
+  "the-woodsen-moto-denim": {
+    "name": "The Woodsen Moto Denim",
+    "unit_amount": 20000,
+    "image": "https://j-hinton.com/assets/images/products/the-woodsen-moto-denim/the-woodsen-moto-denim-1.jpg",
+    "sizes": [
+      "30",
+      "32",
+      "33",
+      "34",
+      "36",
+      "38"
     ]
   }
 }
