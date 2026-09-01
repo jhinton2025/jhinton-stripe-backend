@@ -230,5 +230,29 @@
     "url": "/products/the-mercer-boxer-brief.html",
     "sku": "JB2X14",
     "category": "Underwear"
+  },
+  "the-empyre-sweatshirt-teal": {
+    "title": "The Empyre Sweatshirt — Teal",
+    "price": 105.0,
+    "img": "/assets/images/products/the-empyre-sweatshirt-teal/1.jpg",
+    "url": "/products/the-empyre-sweatshirt-teal.html",
+    "sku": "JE3T26",
+    "category": "Sweatshirts"
+  },
+  "the-bridgewell-sweatshirt-rouge": {
+    "title": "The Bridgewell Sweatshirt — Rouge",
+    "price": 105.0,
+    "img": "/assets/images/products/the-bridgewell-sweatshirt-rouge/1.jpg",
+    "url": "/products/the-bridgewell-sweatshirt-rouge.html",
+    "sku": "JB3R26",
+    "category": "Sweatshirts"
+  },
+  "the-flatrock-sweatshirt-royal": {
+    "title": "The Flatrock Sweatshirt — Royal",
+    "price": 105.0,
+    "img": "/assets/images/products/the-flatrock-sweatshirt-royal/1.jpg",
+    "url": "/products/the-flatrock-sweatshirt-royal.html",
+    "sku": "JF3R26",
+    "category": "Sweatshirts"
   }
 }
